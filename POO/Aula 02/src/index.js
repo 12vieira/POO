@@ -77,29 +77,24 @@ export function MenuPrincipal(){
     const choice = input('Digite a Opção Desejada: ');
     switch (choice) {
         case '1':
-            console.log('em desenvolvimento...');
             CriarAluno();
             break;
         case  '2':
-            console.log('em desenvolvimento...');
             ListarTodos();
             break;
         case '3': 
-            console.log('em desenvolvimento...');
             EditarMatricula();
             break;
         case '4': 
-            console.log('em desenvolvimento...');
             ExcluirTodos();
             break;
         case '5': 
-            console.log('em desenvolvimento...');
             ExcluirMatricula();
             break;
         case '0': 
             break;  
         default:
-            break;
+            console.log("Opção inválida! ");
     }
     
 }
