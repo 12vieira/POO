@@ -11,50 +11,52 @@ export function CriarAluno(){
     const email = input('Digite o Email: ');
     const senha = input('Digite a Senha: ');
 
-    aluno.criar(mat,nome,email,senha)
+    aluno.criar(mat,nome,email,senha);
+    MenuPrincipal();
 }
 export function ListarTodos(){
     const aluno = new AlunoController();
     aluno.listarTodos();
+    MenuPrincipal();
 }
 export function EditarMatricula(){
     
     const aluno = new AlunoController();
     const matricula = input("Digite a matrícula do aluno: ");
     aluno.listaPorMatricula(matricula);
-    const resposta = input("Deseja editar o nome? (S/N): ")
+    let resposta = input("Deseja editar o nome? (S/N): ")
     resposta = resposta.toLocaleLowerCase();
+    let name = aluno.nome;
+    let email = aluno.email;
+    let senha = aluno.senha;
     if (resposta === "s") {
-        const name = input('Insira o novo nome: ');
-        aluno.nome = name;
-    } else {
-        aluno.nome = aluno.nome;
+        let name1 = input('Insira o novo nome: ');
+        name = name1;
     }
-    const resp = input("Deseja editar o e-mail? (S/N): ")
+    let resp = input("Deseja editar o e-mail? (S/N): ")
     resp = resp.toLocaleLowerCase();
     if (resp === "s") {
-        const email = input('Insira o novo email: ');
-        aluno.email = email;
-    } else {
-        aluno.email = aluno.email;
+        let email1 = input('Insira o novo email: ');
+        email = email1;
     }
-    const rp = input("Deseja editar a senha? (S/N): ")
+    let rp = input("Deseja editar a senha? (S/N): ")
     rp = rp.toLocaleLowerCase();
     if (rp === "s") {
-        const senha = input('Insira a nova senha: ');
-        aluno.senha = senha;
-    } else {
-        aluno.senha = aluno.senha;
-    }
+        let senha1 = input('Insira a nova senha: ');
+        senha = senha1;
+    } aluno.editar(matricula,name,email,senha);
+    MenuPrincipal();
 }
 export function ExcluirTodos(){
     const aluno = new AlunoController();
     aluno.deletarTodos();
+    MenuPrincipal();
 }
 export function ExcluirMatricula(){
     const aluno = new AlunoController();
     const matricula = input("Digite a matrícula: ")
     aluno.deletarPorMatricula(matricula);
+    MenuPrincipal();
 }
 export function MenuPrincipal(){
     
