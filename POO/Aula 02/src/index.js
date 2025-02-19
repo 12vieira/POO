@@ -1,10 +1,55 @@
 import prompt from 'prompt-sync';
-
-import  {AlunoController}  from './modulos/Aluno/controllers/index.js'
-
 const input = prompt();
 
-export function CriarAluno(){
+//import  {AlunoController}  from './modulos/Aluno/controllers/index.js' //AlunoController.criar - AlunoController.editar
+import { AlunoView } from './modulos/Aluno/views/index.js';
+
+
+export function MenuPrincipal(){
+    
+    const options = [
+        "+-----------------------------------+",
+        "| Menu Principal                    |",
+        "+-----------------------------------+",
+        "|1 - Criar Novo Aluno               |",
+        "|2 - Listar Todos os Alunos         |" ,
+        "|3 - Editar Aluno por Matrícula     |",
+        "|4 - Excluir Todos os Alunos        |",
+        "|5 - Excluir por Matrícula          |",
+        "|0 - Sair                           |",
+        "+-----------------------------------+"  
+    ];
+    const alunoView = new AlunoView();
+    console.log(options);
+    const choice = input('Digite a Opção Desejada: ');
+    switch (choice) {
+        case '1':
+            alunoView.criarAluno();
+            break;
+        case  '2':
+            alunoView.listarTodos();
+            break;
+        case '3': 
+            alunoView.editarMatricula();
+            break;
+        case '4': 
+            alunoView.excluirTodos();
+            break;
+        case '5': 
+            alunoView.excluirMatricula();
+            break;
+        case '0': 
+            break;  
+        default:
+            console.log("Opção inválida! ");
+    }
+    
+}
+
+MenuPrincipal();
+
+
+/*export function criarAluno(){
     const aluno = new AlunoController();
     const mat = input('Digite a Matrícula: ');
     const nome = input('Digite o Nome: ');
@@ -14,12 +59,12 @@ export function CriarAluno(){
     aluno.criar(mat,nome,email,senha);
     MenuPrincipal();
 }
-export function ListarTodos(){
+export function listarTodos(){
     const aluno = new AlunoController();
     aluno.listarTodos();
     MenuPrincipal();
 }
-export function EditarMatricula(){
+export function editarMatricula(){
     
     const aluno = new AlunoController();
     const matricula = input("Digite a matrícula do aluno: ");
@@ -47,60 +92,17 @@ export function EditarMatricula(){
     } aluno.editar(matricula,name,email,senha);
     MenuPrincipal();
 }
-export function ExcluirTodos(){
+export function excluirTodos(){
     const aluno = new AlunoController();
     aluno.deletarTodos();
     MenuPrincipal();
 }
-export function ExcluirMatricula(){
+export function excluirMatricula(){
     const aluno = new AlunoController();
     const matricula = input("Digite a matrícula: ")
     aluno.deletarPorMatricula(matricula);
     MenuPrincipal();
-}
-export function MenuPrincipal(){
-    
-    const options = [
-        "+-----------------------------------+",
-        "| Menu Principal                    |",
-        "+-----------------------------------+",
-        "|1 - Criar Novo Aluno               |",
-        "|2 - Listar Todos os Alunos         |" ,
-        "|3 - Editar Aluno por Matrícula     |",
-        "|4 - Excluir Todos os Alunos        |",
-        "|5 - Excluir por Matrícula          |",
-        "|0 - Sair                           |",
-        "+-----------------------------------+"  
-    ];
-
-    console.log(options);
-    const choice = input('Digite a Opção Desejada: ');
-    switch (choice) {
-        case '1':
-            CriarAluno();
-            break;
-        case  '2':
-            ListarTodos();
-            break;
-        case '3': 
-            EditarMatricula();
-            break;
-        case '4': 
-            ExcluirTodos();
-            break;
-        case '5': 
-            ExcluirMatricula();
-            break;
-        case '0': 
-            break;  
-        default:
-            console.log("Opção inválida! ");
-    }
-    
-}
-
-MenuPrincipal();
-
+}*/
 
 /*
 const aluno1 = new AlunoController()
